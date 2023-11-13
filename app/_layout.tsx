@@ -14,10 +14,10 @@ export {
  * 让(tabs)文件夹成为默认router入口
  * 注释掉 默认展示index
  */
-// export const unstable_settings = {
-//   // Ensure that reloading on `/modal` keeps a back button present.
-//   initialRouteName: '(tabs)',
-// };
+export const unstable_settings = {
+  // Ensure that reloading on `/modal` keeps a back button present.
+  initialRouteName: '(tabs)',
+};
 
 /**
  * 开屏图片 页面未加载完成时候展示开屏图片 加载完成后关闭
@@ -49,8 +49,8 @@ export default function RootLayout() {
     return null;
   }
 
-  return <Stack />;
-  // return <RootLayoutNav />;
+  // return <Stack />;
+  return <RootLayoutNav />;
 }
 
 function RootLayoutNav() {
