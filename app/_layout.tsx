@@ -10,14 +10,24 @@ export {
   ErrorBoundary,
 } from 'expo-router';
 
-export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: '(tabs)',
-};
+/**
+ * 让(tabs)文件夹成为默认router入口
+ * 注释掉 默认展示index
+ */
+// export const unstable_settings = {
+//   // Ensure that reloading on `/modal` keeps a back button present.
+//   initialRouteName: '(tabs)',
+// };
 
+/**
+ * 开屏图片 页面未加载完成时候展示开屏图片 加载完成后关闭
+ */
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
+/**
+ * 确保字体加载完成后进入页面 加载失败抛出异常
+ */
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
@@ -39,10 +49,14 @@ export default function RootLayout() {
     return null;
   }
 
-  return <RootLayoutNav />;
+  return <Stack />;
+  // return <RootLayoutNav />;
 }
 
 function RootLayoutNav() {
+  /**
+   * 获取当前系统 深色浅色模式
+   */
   const colorScheme = useColorScheme();
 
   return (
